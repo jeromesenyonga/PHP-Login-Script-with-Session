@@ -7,4 +7,4 @@
 
  So, the login script is an integral part of an application. I will present you the implementation of the login system with minimal code.
 
- Authentication will help us to identify the genuine users. By enabling authentication, we can protect our website from anonymous access. 
+ - Authentication will help us to identify the genuine users. By enabling authentication, we can protect our website from anonymous access. 
