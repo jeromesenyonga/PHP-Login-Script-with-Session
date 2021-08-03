@@ -1,5 +1,5 @@
 <?php
-namespace Phppot;
+namespace Jerome;
 
 /**
  * Generic datasource class for handling DB operations.

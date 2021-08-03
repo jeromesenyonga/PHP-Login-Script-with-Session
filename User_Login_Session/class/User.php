@@ -1,18 +1,40 @@
 <?php
 namespace Jerome;
 
-use \Jerome\User;
-if(! empty($_POST["login"])) {
-    session_start();
-    $username = filter_var($_POST["user_name"], FILTER_SANITIZE_STRING);
-    $password = filter_var($_POST["password"], FILTER_SANITIZE_STRING);
-    require_once (__DIR__ . "./class/user.php");
+use \Jerome\DataSource;
 
-    $user = new User();
-    $isLoggedIn = $user->processLogin($username, $password);
-    if(! $isLoggedIn) {
-        $_SESSION["errorMessage"] = "Invalid Credentials";
+class User
+{
+
+    private $dbConn;
+
+    private $ds;
+
+    function __construct()
+    {
+        require_once "DataSource.php";
+        $this->ds = new DataSource();
     }
-    header("location: ./index.php");
-    exit();
+
+    function getUserById($userId)
+    {
+        $query = "select * FROM registered_users WHERE id = ?";
+        $paramType = "i";
+        $paramArray = array($userId);
+        $userResult = $this->ds->select($query, $paramType, $paramArray);
+        
+        return $userResult;
+    }
+    
+    public function processLogin($username, $password) {
+        $passwordHash = md5($password);
+        $query = "select * FROM registered_users WHERE user_name = ? AND password = ?";
+        $paramType = "ss";
+        $paramArray = array($username, $passwordHash);
+        $userResult = $this->ds->select($query, $paramType, $paramArray);
+        if(!empty($userResult)) {
+            $_SESSION["userId"] = $userResult[0]["id"];
+            return true;
+        }
+    }
 }

@@ -7,7 +7,7 @@ use \Jerome\User;
 if(! empty($_SESSION["userId"])) {
     require_once __DIR__ . "./../class/User.php";
     $user = new User();
-    $userResult = $user->getUserById($_SESSION["userID"]);
+    $userResult = $user->getUserById($_SESSION["userId"]);
     if(! empty($userResult[0]["display_name"])) {
         $displayName = ucwords($userResult[0]["user_name"]);
     } else{
