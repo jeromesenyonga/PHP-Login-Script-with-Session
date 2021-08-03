@@ -1,4 +1,5 @@
 <?php
+//Get logged-in user profile data to display a welcome message
 namespace Jerome;
 
 use \Jerome\User;

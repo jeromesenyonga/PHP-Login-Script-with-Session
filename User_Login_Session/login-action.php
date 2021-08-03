@@ -1,4 +1,6 @@
 <?php
+//PHP code to process login
+
 namespace Jerome;
 
 use \Jerome\User;

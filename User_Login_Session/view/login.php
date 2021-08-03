@@ -40,6 +40,8 @@
                 </div>
             </form>
         </div>
+        
+        <!-- Login form validation-->
         <script>
             function (){
                 var $valid = true;
