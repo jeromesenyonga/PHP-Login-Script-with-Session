@@ -63,3 +63,38 @@ body{
     font-size: 1.1em;
 }
 
+.response-text {
+    max-width: 380px;
+    font-size: 1.5em;
+    text-align: center;
+    background: #fff3de;
+    padding: 42px;
+    border-radius: 3px;
+    border: #f5e9d4 1px solid;
+    font-family: arial;
+    line-height: 34px;
+    margin: 15px auto;
+}
+
+.terms {
+    margin-bottom: 5px;
+}
+
+.dashboard {
+    background: #d2edd5;
+    text-align: center;
+    margin: 15px auto;
+    line-height: 1.8em;
+    color: #333;
+    border-radius: 4px;
+    padding: 30px;
+    max-width: 400px;
+    border: #c8e0cb 1px solid;
+}
+.error-info {
+    color: #FF0000;
+    margin-left: 10px;
+}
+a.logout-button {
+    color: #09f;
+}
